@@ -1,0 +1,57 @@
+# 通用配置
+appId: come.xingzheai.hischool
+productName: AI音乐创作系统
+files:
+  - dist/**
+  - main.js
+  - config.json
+  - package.json
+  - preload.js
+  - offline.html
+  - index.html
+asar: false
+extraResources:
+  - from: assets/
+    to: assets/
+    filter: ["**/*"]
+directories:
+  output: out
+  buildResources: assets
+
+# Windows 配置
+win:
+  # 应用程序的图标
+  icon: assets/logo.ico
+  # 定义应用程序的执行权限
+  requestedExecutionLevel: asInvoker
+  # 目标打包格式
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - ia32
+    - zip
+# 配置 NSIS 安装程序的选项
+nsis:
+  # 是否一键安装，设置为 false，表示用户可以自定义安装过程，而不是直接一键安装
+  oneClick: false
+  # 是否以 每台机器 模式安装，为 true 表示应用安装在系统的 Program Files 文件夹中，并为所有用户可用
+  perMachine: true
+  # 允许用户更改安装目录
+  allowToChangeInstallationDirectory: true
+  # 卸载应用程序时是否删除用户的应用数据
+  deleteAppDataOnUninstall: true
+  # 创建桌面快捷方式
+  createDesktopShortcut: true
+  # 创建开始菜单快捷方式
+  createStartMenuShortcut: true
+  # 快捷方式名称
+  shortcutName: AI音乐创作系统
+
+# macOS 配置
+mac:
+  target:
+    - dmg
+    - zip
+    - pkg
+  icon: assets/logo.png
